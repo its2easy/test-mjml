@@ -17,6 +17,7 @@
       <mj-column>
         <mj-text>
           <h1>The Reason You're Reading This</h1>
+          <a href="login.html">Login</a>
           <p>
             By the time you start reading this sentence, you have already made up your mind. In fact, your brain only took ⅒ of a second to get an impression.
           </p>

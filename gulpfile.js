@@ -1,46 +1,55 @@
 "use strict";
+import gulp  from 'gulp';
+import browsersync  from  'browser-sync';
+import mjml  from  'gulp-mjml';
+import newer from  'gulp-newer';
+import { deleteAsync } from 'del'
+import plumber from 'gulp-plumber';
+import yargs from 'yargs';
+import gulpif  from  'gulp-if';
+import rename  from  'gulp-rename';
+//import fileinclude from  'gulp-file-include';
+//var mjmlEngine = require('mjml').default
+import mjmlEngine from 'mjml';
 
-const gulp           = require('gulp'),
-      mjml           = require('gulp-mjml'),
-      fileinclude    = require('gulp-file-include'),
-      imagemin       = require('gulp-imagemin'),
-      newer          = require('gulp-newer'),
-      browsersync    = require('browser-sync').create();
-
-var mjmlEngine = require('mjml').default
-
-var config = {
+let config = {
   assetsDir: './assets',
   distDir: './dist',
-  srcDir: './src'
+  srcDir: './src',
+  port: 3007,
 };
 
-function handleError (err) {
-  console.log(err.toString());
-  this.emit('end');
+const argv = yargs(process.argv.slice(2)).argv;
+const PRODUCTION = !!(argv.production);
+
+// function handleError (err) {
+//   console.log(err.toString());
+//   this.emit('end');
+// }
+function clean(done) {
+  deleteAsync(`${config.distDir}/**/*`)
+      .then(() => { done(); })
 }
 
-function mjml2html() {
+// Process mjml templates
+function mjml2html() { //todo filter newer, check for production
   return gulp
-    .src(config.srcDir + "/*.mjml")
-    .pipe(fileinclude({ prefix: "@@", basepath: "@file" }))
-    .on("error", handleError)
-    .pipe(mjml(mjmlEngine, { minify: true, validationLevel: "strict" }))
-    .on("error", handleError)
+    .src([`${config.srcDir}/**/*.mjml`, `!${config.srcDir}/includes/**/*`, `!${config.srcDir}/partials/**/*`])
+    //.pipe(fileinclude({ prefix: "@@", basepath: "@file" }))
+    .pipe(plumber())
+    .pipe(mjml(mjmlEngine, { minify: true, validationLevel: "strict", beautify: false }))
     .pipe(gulp.dest(config.distDir))
-    .on("error", handleError)
     .pipe(browsersync.stream());
 }
 
 // BrowserSync
-function browserSync(done) {
+function browserSyncInit(done) {
   browsersync.init({
     server: {
       baseDir: config.distDir
     },
-    port: 3000
-  });
-  done();
+    port: config.port
+  }, done);
 }
 
 // BrowserSync Reload
@@ -49,34 +58,31 @@ function browserSyncReload(done) {
   done();
 }
 
+// Copy assets
 function assets() {
-  gulp
-    .src([config.assetsDir + '/**/*'])
-    .pipe(newer(config.distDir + '/assets'))
-    .pipe(gulp.dest(config.distDir + '/assets'));
-
   return gulp
-    .src(config.assetsDir + "/images/**/*")
-    .pipe(newer(config.distDir + "/assets/images"))
-    .pipe(
-      imagemin([
-        imagemin.mozjpeg({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-      ])
-    )
-    .pipe(gulp.dest(config.distDir + "/assets/images"));
+    .src(`${config.assetsDir}/**/*`)
+    .pipe(newer(`${config.distDir}/assets`))
+    .pipe(gulp.dest(`${config.distDir}/assets`));
+}
+
+//====== NEW ==============
+function prepareForDeploy(){
+  return gulp.src([`${config.distDir}/**/*.html`, `!${config.distDir}/index.html`])
+      .pipe(rename(function (path) {
+        path.extname = ".hbs"
+      }))
+      .pipe(gulp.dest( config.distDir ));
 }
 
 function watchFiles() {
-  gulp.watch(config.srcDir + '/**/*.mjml', gulp.series(gulp.parallel(mjml2html, assets), browserSyncReload));
-  gulp.watch(config.srcDir + '/**/*.css', gulp.series(gulp.parallel(mjml2html, assets), browserSyncReload));
-  gulp.watch(config.assetsDir + '/images/**/*', assets);
+  gulp.watch( `${config.srcDir}/**/*`).on( 'all', gulp.series(gulp.parallel(mjml2html, assets), browserSyncReload) );
+  gulp.watch( `${config.assetsDir}/**/*`).on('all', gulp.series(assets, browserSyncReload) );
 }
 
-const build = gulp.parallel(mjml2html, assets);
-const watch = gulp.parallel(watchFiles, browserSync);
+const build = gulp.series( clean, gulp.parallel(mjml2html, assets), prepareForDeploy );
+const watch = gulp.series(mjml2html, assets, browserSyncInit, watchFiles );
 
-exports.assets = assets;
-exports.build = build;
-exports.watch = watch;
-exports.default = watch;
+
+export { build, watch };
+export default  watch;

@@ -1,0 +1,16 @@
+<mjml>
+    <mj-head>
+        <mj-preview>
+            <!-- TODO Add mail preview -->
+        </mj-preview>
+    </mj-head>
+    <mj-body>
+        <mj-section mj-class="section">
+            <mj-column>
+                <mj-text>
+                123132 {{code}} 123
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>
