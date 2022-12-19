@@ -7,9 +7,24 @@
             <meta name="x-apple-disable-message-reformatting">
         </mj-raw>
         <mj-include path="includes/global-styles.mjml" />
-
         <mj-style inline="inline">
-
+            .code-block{
+                background: #F1F8FF;
+                border: 1px solid #E0ECF9;
+                border-radius: 20px;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 18px;
+                text-align: center;
+                text-transform: uppercase;
+                color: #262626;
+                color: rgba(0, 0, 0, 0.85);
+                padding: 28px;
+                margin-top: 21px;
+                Margin-top: 21px;
+                margin-bottom: 0;
+                Margin-bottom: 0;
+            }
         </mj-style>
     </mj-head>
 
