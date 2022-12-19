@@ -1,0 +1,41 @@
+<mj-section mj-class="footer" css-class="footer">
+    <mj-group>
+        <mj-column width="100%">
+            <mj-text mj-class="text-content">
+                <h2 class="footer__title">INSTALL ON THE DEVICE</h2>
+            </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+            <mj-text align="right" padding-right="18px">
+                <a href="https://api.meetsidekick.com/downloads/mac?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=big-btn-mac">
+                    <img src="https://www.meetsidekick.com/email/mac.png" alt="icon" width="180" height="65"  class="responsive">
+                </a>
+            </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+            <mj-text padding-left="18px">
+                <a href="https://api.meetsidekick.com/downloads/win?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=big-btn-win">
+                    <img src="https://www.meetsidekick.com/email/ms2.png" alt="icon" width="180" height="65" class="responsive">
+                </a>
+            </mj-text>
+        </mj-column>
+        <mj-column width="100%">
+            <mj-text mj-class="text-content">
+                <p class="footer__platforms">
+                    <b>All platforms:</b>
+                    <a href="https://api.meetsidekick.com/downloads/win?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=link-win">Windows</a>
+                    <a href="https://api.meetsidekick.com/downloads/mac?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=link-mac">Mac OS</a>
+                    <a href="https://api.meetsidekick.com/downloads/macm1?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=link-macm1">Mac OS (M1 chip)</a>
+                    <a href="https://api.meetsidekick.com/downloads/linux/deb?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=link-linux-deb">Linux (deb)</a>
+                    <a href="https://api.meetsidekick.com/downloads/linux/rpm?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=link-linux-rpm" class="last">Linux (rpm)</a>
+                </p>
+            </mj-text>
+        </mj-column>
+    </mj-group>
+</mj-section>
+
+<mj-wrapper padding="0">
+    <mj-raw>
+        <p class="company">PushPlayLabs Inc. 101 South Park st, San-Francisco, CA, 94107</p>
+    </mj-raw>
+</mj-wrapper>

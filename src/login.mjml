@@ -1,16 +1,34 @@
-<mjml>
+<mjml lang="en">
     <mj-head>
-        <mj-preview>
-            <!-- TODO Add mail preview -->
-        </mj-preview>
+        <mj-title>Login</mj-title>
+        <mj-preview>Login code for Sidekick Browser</mj-preview>
+        <mj-raw>
+            <meta name="format-detection" content="telephone=no">
+            <meta name="x-apple-disable-message-reformatting">
+        </mj-raw>
+        <mj-include path="includes/global-styles.mjml" />
+
+        <mj-style inline="inline">
+
+        </mj-style>
     </mj-head>
-    <mj-body>
-        <mj-section mj-class="section">
+
+    <mj-body css-class="body-regular">
+
+        <mj-section mj-class="content-section" css-class="content-section" >
             <mj-column>
-                <mj-text>
-                123132 {{code}} 123
+                <mj-image css-class="content-logo" width="75px" height="75px" alt="meetsidekick" align="left" padding="0 0 35px 0" title="meetsidekick"
+                          href="https://www.meetsidekick.com/?utm_source=email&utm_medium=unp&utm_campaign=login&utm_content=logo"
+                          src="https://www.meetsidekick.com/email/logo2.png" />
+                <mj-text mj-class="text-content">
+                    <h1 class="content-title">Login code for Sidekick Browser</h1>
+                    <p>Copy and paste your temporary login code:</p>
+                    <p class="code-block">{{CODE}}</p>
                 </mj-text>
             </mj-column>
         </mj-section>
+
+        <mj-include path="./partials/footer.mjml" />
     </mj-body>
+
 </mjml>

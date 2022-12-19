@@ -6,10 +6,9 @@ import newer from  'gulp-newer';
 import { deleteAsync } from 'del'
 import plumber from 'gulp-plumber';
 import yargs from 'yargs';
-import gulpif  from  'gulp-if';
 import rename  from  'gulp-rename';
+//import gulpif  from  'gulp-if';
 //import fileinclude from  'gulp-file-include';
-//var mjmlEngine = require('mjml').default
 import mjmlEngine from 'mjml';
 
 let config = {
@@ -66,7 +65,7 @@ function assets() {
     .pipe(gulp.dest(`${config.distDir}/assets`));
 }
 
-//====== NEW ==============
+// Process after build
 function prepareForDeploy(){
   return gulp.src([`${config.distDir}/**/*.html`, `!${config.distDir}/index.html`])
       .pipe(rename(function (path) {

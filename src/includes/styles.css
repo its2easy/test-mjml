@@ -1,0 +1,16 @@
+body{
+  padding-top: 85px;
+  padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 479px) {
+  .hidden-on-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  img.responsive{
+    width: auto;
+  }
+}

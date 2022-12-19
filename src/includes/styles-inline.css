@@ -1,0 +1,112 @@
+body {
+  -webkit-font-smoothing: antialiased;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  margin-top: 0;
+  Margin-top: 0;
+}
+h2{
+    margin-top: 0;
+    Margin-top: 0;
+}
+img{
+    max-width: 100%;
+}
+p{
+  font-size: 14px;
+  color: #4d4d4d;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+  Margin-bottom: 10px;
+}
+
+
+.content-section{
+  border: 1px solid #FFFFFF;
+}
+.content-title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 22px;
+  Margin-bottom: 22px;
+  color: #262626;
+  color: rgba(0, 0, 0, 0.85);
+}
+.content-logo{
+
+}
+.content-logo img{
+    margin-top: -52px; /*15 + 75/2*/
+    Margin-top: -52px; /*15 + 75/2*/
+    /*margin-bottom: 10px;*/
+}
+
+
+.code-block{
+ background: #F1F8FF;
+ border: 1px solid #E0ECF9;
+ border-radius: 20px;
+ font-weight: 700;
+ font-size: 16px;
+ line-height: 18px;
+ text-align: center;
+ text-transform: uppercase;
+ color: #262626;
+ color: rgba(0, 0, 0, 0.85);
+ padding: 28px;
+ margin-top: 21px;
+ Margin-top: 21px;
+ margin-bottom: 0;
+ Margin-bottom: 0;
+}
+
+
+.footer{
+    border: 1px solid #FFFFFF;
+    margin-top: 30px !important;
+    Margin-top: 30px !important;
+}
+.footer__title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+    Margin-bottom: 13px;
+}
+.footer__platforms{
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    margin-bottom: 0;
+    Margin-bottom: 0;
+    margin-top: 30px;
+    Margin-top: 30px;
+}
+.footer__platforms a, .footer__platforms b{
+    margin-right: 20px;
+    Margin-right: 20px;
+}
+.footer__platforms a.last{
+    margin-right: 0;
+    Margin-right: 0;
+}
+.footer__platforms b{
+    color: #000000;
+}
+.footer__platforms a{
+    color: #888888;
+    text-decoration: none;
+}
+.company{
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    color: #9C9595;
+    margin: 18px 0 0 0;
+    Margin: 18px 0 0 0;
+}

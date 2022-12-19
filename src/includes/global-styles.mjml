@@ -1,0 +1,14 @@
+<mj-attributes>
+  <mj-body background-color="#FFF4F1" />
+  <mj-all font-family="Arial, Helvetica, sans-serif" ico-font-family="Arial, Helvetica, sans-serif" font-size="16px"
+          line-height="1.3" color="#000000" />
+
+  <mj-class name="content-section" padding="15px 60px 50px 60px" background-color="#ffffff" border-radius="40px"/>
+  <mj-class name="text-content" padding="0" />
+
+  <mj-class name="footer" background-color="#fffaf8" border-radius="40px" padding="38px 15px 25px 15px" />
+</mj-attributes>
+
+
+<mj-include path="styles-inline.css" type="css" css-inline="inline" />
+<mj-include path="styles.css" type="css" />
